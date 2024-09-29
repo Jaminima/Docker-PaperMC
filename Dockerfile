@@ -24,7 +24,7 @@ RUN java -jar paper.jar
 #Accept the eula
 RUN echo "eula=true" > /minecraft-init/eula.txt
 
-#Get plugins
-#RUN wget -O /minecraft-init/plugins/TreeFella.jar https://hangarcdn.papermc.io/plugins/V1ttorassi/TreeFella/versions/1.3/PAPER/TreeFella-1.3.jar
+#Get Plugins
+RUN wget -O /minecraft-init/plugins/Backer.jar https://hangarcdn.papermc.io/plugins/Collagen/Backuper/versions/3.1.0/PAPER/Backuper-3.1.0.jar
 
 CMD ["./docker-start.sh"]
