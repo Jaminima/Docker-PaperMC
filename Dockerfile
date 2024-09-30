@@ -24,7 +24,8 @@ RUN java -jar paper.jar
 #Accept the eula
 RUN echo "eula=true" > /minecraft-init/eula.txt
 
-#Get Plugins
-RUN wget -O /minecraft-init/plugins/Backer.jar https://hangarcdn.papermc.io/plugins/Collagen/Backuper/versions/3.1.0/PAPER/Backuper-3.1.0.jar
+#Setup Plugins
+RUN wget -O /minecraft-init/plugins/Backuper.jar https://hangarcdn.papermc.io/plugins/Collagen/Backuper/versions/3.1.0/PAPER/Backuper-3.1.0.jar
+COPY ./plugin-configs/backuper-config.yml /minecraft-init/plugins/Backuper/config.yml
 
 CMD ["./docker-start.sh"]
