@@ -3,5 +3,6 @@ services:
       image: jaminima/paper
       ports:
         - "25565:25565"
+        - "8804:8804"
       volumes:
         - ./server:/minecraft
