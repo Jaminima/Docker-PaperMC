@@ -45,7 +45,9 @@ COPY ./configs/welcome-motd.txt /minecraft-init/plugins/mini-info/MOTD.txt
 
 RUN wget -O /minecraft-init/plugins/CenterMOTD.jar https://hangarcdn.papermc.io/plugins/colbster937/CenterMOTD/versions/1.0-SNAPSHOT/PAPER/CenterMOTD-spigot.jar
 
-RUN wget -O /minecraft-init/plugins/Mini-Motd.jar https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.3/PAPER/minimotd-bukkit-2.1.3.jar
-COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMotd/main.conf
+RUN wget -O /minecraft-init/plugins/Mini-MOTD.jar https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.3/PAPER/minimotd-bukkit-2.1.3.jar
+COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
+
+RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
 
 CMD ["./docker-start.sh"]
