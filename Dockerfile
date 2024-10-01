@@ -40,4 +40,6 @@ RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/p
 RUN wget -O /minecraft-init/plugins/Mini-Info.jar https://hangarcdn.papermc.io/plugins/bluelhf/mini-info/versions/1.0.0/PAPER/mini-info.jar
 COPY ./plugin-configs/MOTD.txt /minecraft-init/plugins/mini-info/MOTD.txt
 
+RUN wget -O /minecraft-init/plugins/CenterMOTD.jar https://hangarcdn.papermc.io/plugins/colbster937/CenterMOTD/versions/1.0-SNAPSHOT/PAPER/CenterMOTD-spigot.jar
+
 CMD ["./docker-start.sh"]
