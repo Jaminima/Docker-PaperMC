@@ -11,6 +11,7 @@ cp -r ./versions /minecraft
 # Copy the server files
 cp ./eula.txt /minecraft
 cp ./paper.jar /minecraft
+cp ./server-icon.png /minecraft
 
 # Start the server
 cd /minecraft
