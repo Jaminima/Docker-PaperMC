@@ -37,4 +37,7 @@ RUN wget -O /minecraft-init/plugins/Plan.jar https://github.com/plan-player-anal
 
 RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/plugins/William278/HuskHomes/versions/4.7/PAPER/HuskHomes-Paper-4.7.jar
 
+RUN wget -O /minecraft-init/plugins/Mini-Info.jar https://hangarcdn.papermc.io/plugins/bluelhf/mini-info/versions/1.0.0/PAPER/mini-info.jar
+COPY ./plugin-configs/MOTD.txt /minecraft-init/plugins/mini-info/MOTD.txt
+
 CMD ["./docker-start.sh"]

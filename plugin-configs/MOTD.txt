@@ -1,0 +1,7 @@
+Welcome to <gold>WhiteGoat</gold>!
+There are no rules, just be <blue>respectful!</blue>
+Some handy commands are:
+- <green>/tpa <name></green>
+- <red>/tpaccept</red>
+- <green>/home</green>
+- <red>/sethome</red>
