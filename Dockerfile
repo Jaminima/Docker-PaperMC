@@ -18,7 +18,8 @@ COPY ./docker-start.sh /minecraft-init/docker-start.sh
 #Install Java and wget
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
-    wget
+    wget \
+    dos2unix
 
 #Download the paper jar
 RUN wget -O /minecraft-init/paper.jar  https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/110/downloads/paper-1.21.1-110.jar
@@ -42,6 +43,7 @@ RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/p
 
 RUN wget -O /minecraft-init/plugins/Mini-Info.jar https://hangarcdn.papermc.io/plugins/bluelhf/mini-info/versions/1.0.0/PAPER/mini-info.jar
 COPY ./configs/welcome-motd.txt /minecraft-init/plugins/mini-info/MOTD.txt
+RUN dos2unix /minecraft-init/plugins/mini-info/MOTD.txt
 
 RUN wget -O /minecraft-init/plugins/CenterMOTD.jar https://hangarcdn.papermc.io/plugins/colbster937/CenterMOTD/versions/1.0-SNAPSHOT/PAPER/CenterMOTD-spigot.jar
 
