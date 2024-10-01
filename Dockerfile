@@ -35,4 +35,6 @@ COPY ./plugin-configs/backuper-config.yml /minecraft-init/plugins/Backuper/confi
 
 RUN wget -O /minecraft-init/plugins/Plan.jar https://github.com/plan-player-analytics/Plan/releases/download/5.6.2883/Plan-5.6-build-2883.jar
 
+RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/plugins/William278/HuskHomes/versions/4.7/PAPER/HuskHomes-Paper-4.7.jar
+
 CMD ["./docker-start.sh"]
