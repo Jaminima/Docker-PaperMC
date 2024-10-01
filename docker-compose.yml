@@ -1,6 +1,8 @@
 services:
     paper:
       image: jaminima/paper
+      stdin_open: true
+      tty: true
       ports:
         - "25565:25565"
         - "8804:8804"
