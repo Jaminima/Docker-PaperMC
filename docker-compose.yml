@@ -5,6 +5,7 @@ services:
       tty: true
       ports:
         - "25565:25565"
+        - "25560:25560"
         - "8804:8804"
       volumes:
         - ./server:/minecraft

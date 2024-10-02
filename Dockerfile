@@ -3,6 +3,9 @@ FROM ubuntu:latest
 #MC Server Port
 EXPOSE 25565
 
+#Resource Pack Port
+EXPOSE 25560
+
 #Plan Analytics Port
 EXPOSE 8804
 
@@ -49,5 +52,13 @@ RUN wget -O /minecraft-init/plugins/Mini-MOTD.jar https://hangarcdn.papermc.io/p
 COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
 
 RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
+
+RUN wget -O /minecraft-init/plugins/Nova.jar https://github.com/xenondevs/Nova/releases/download/0.17-alpha.22/Nova-0.17-alpha.22.jar
+RUN mkdir /minecraft-init/plugins/Nova
+RUN mkdir /minecraft-init/plugins/Nova/addons
+RUN wget -O /minecraft-init/plugins/Nova/addons/Machines.jar https://github.com/Nova-Addons/Official-Addons/releases/download/19/Machines-0.4.6-alpha.12.jar
+RUN wget -O /minecraft-init/plugins/Nova/addons/Simple-Upgrades.jar https://github.com/Nova-Addons/Official-Addons/releases/download/15/Simple-Upgrades-1.4-alpha.2.jar
+RUN wget -O /minecraft-init/plugins/Nova/addons/Logistics.jar https://github.com/Nova-Addons/Official-Addons/releases/download/15/Logistics-0.2.9-alpha.3.jar
+COPY ./configs/nova-config.yml /minecraft-init/plugins/Nova/configs/config.yml
 
 CMD ["./docker-start.sh"]

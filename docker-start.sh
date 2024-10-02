@@ -15,4 +15,4 @@ cp ./server-icon.png /minecraft
 
 # Start the server
 cd /minecraft
-java -Xms4G -Xmx4G -jar paper.jar --nogui
+java -Xms8G -Xmx8G -XX:+EnableDynamicAgentLoading -jar paper.jar --nogui 
