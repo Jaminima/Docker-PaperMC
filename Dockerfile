@@ -12,6 +12,9 @@ EXPOSE 25565
 #Plan Analytics Port
 EXPOSE 8804
 
+#BlueMap Port
+EXPOSE 8100
+
 #Create a directory for the server
 RUN mkdir /minecraft-init
 RUN chmod 777 /minecraft-init
@@ -53,11 +56,6 @@ COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
 RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
 
 RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
-
-RUN ls
-
-RUN ls /minecraft-init
-
-
+COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/config.conf
 
 CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
