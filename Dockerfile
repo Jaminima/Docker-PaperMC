@@ -58,4 +58,6 @@ RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forge
 RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
 COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 
+RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Stable%20Builds/5/artifact/target/WildStacker-2024.3.jar
+
 CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
