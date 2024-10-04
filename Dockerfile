@@ -1,10 +1,19 @@
 FROM ubuntu:latest
 
+#Install Java and wget
+RUN apt-get update && apt-get install -y \
+    openjdk-21-jdk \
+    wget \
+    dos2unix
+
 #MC Server Port
 EXPOSE 25565
 
 #Plan Analytics Port
 EXPOSE 8804
+
+#BlueMap Port
+EXPOSE 8100
 
 #Create a directory for the server
 RUN mkdir /minecraft-init
@@ -13,13 +22,9 @@ RUN chmod 777 /minecraft-init
 WORKDIR /minecraft-init
 
 #Copy the server files
-COPY ./docker-start.sh /minecraft-init/docker-start.sh
-
-#Install Java and wget
-RUN apt-get update && apt-get install -y \
-    openjdk-21-jdk \
-    wget \
-    dos2unix
+COPY docker-start.sh ./docker-start.sh
+RUN dos2unix ./docker-start.sh
+RUN chmod +x ./docker-start.sh
 
 #Download the paper jar
 RUN wget -O /minecraft-init/paper.jar  https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/110/downloads/paper-1.21.1-110.jar
@@ -50,4 +55,7 @@ COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
 
 RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
 
-CMD ["./docker-start.sh"]
+RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
+COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
+
+CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
