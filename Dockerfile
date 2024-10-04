@@ -60,4 +60,8 @@ COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 
 RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Stable%20Builds/5/artifact/target/WildStacker-2024.3.jar
 
+RUN wget -O /minecraft-init/plugins/multiverse-core.jar https://hangarcdn.papermc.io/plugins/Multiverse/Multiverse-Core/versions/4.3.13/PAPER/multiverse-core-4.3.13.jar
+RUN wget -O /minecraft-init/plugins/multiverse-inventories.jar https://mediafilez.forgecdn.net/files/4721/185/multiverse-inventories-4.2.6.jar
+RUN wget -O /minecraft-init/plugins/multiverse-portals.jar https://cdn.modrinth.com/data/8VMk6P0I/versions/R2j8xMnO/multiverse-portals-4.3.0-pre.jar
+
 CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
