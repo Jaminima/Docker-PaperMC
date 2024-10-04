@@ -56,6 +56,6 @@ COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
 RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
 
 RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
-COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/config.conf
+COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 
 CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
