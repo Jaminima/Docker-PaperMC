@@ -1,10 +1,19 @@
 FROM ubuntu:latest
 
+#Install Java and wget
+RUN apt-get update && apt-get install -y \
+    openjdk-21-jdk \
+    wget \
+    dos2unix
+
 #MC Server Port
 EXPOSE 25565
 
 #Plan Analytics Port
 EXPOSE 8804
+
+#BlueMap Port
+EXPOSE 8100
 
 #Create a directory for the server
 RUN mkdir /minecraft-init
@@ -13,13 +22,9 @@ RUN chmod 777 /minecraft-init
 WORKDIR /minecraft-init
 
 #Copy the server files
-COPY ./docker-start.sh /minecraft-init/docker-start.sh
-
-#Install Java and wget
-RUN apt-get update && apt-get install -y \
-    openjdk-21-jdk \
-    wget \
-    dos2unix
+COPY docker-start.sh ./docker-start.sh
+RUN dos2unix ./docker-start.sh
+RUN chmod +x ./docker-start.sh
 
 #Download the paper jar
 RUN wget -O /minecraft-init/paper.jar  https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/110/downloads/paper-1.21.1-110.jar
@@ -58,4 +63,21 @@ RUN wget -O /minecraft-init/plugins/EssentialsXChat.jar https://ci.ender.zone/jo
 
 RUN wget -O /minecraft-init/plugins/VaultUnlocked.jar https://hangarcdn.papermc.io/plugins/TNE/VaultUnlocked/versions/2.0.0/PAPER/VaultUnlocked-2.1.0.jar
 
-CMD ["./docker-start.sh"]
+RUN wget -O /minecraft-init/plugins/LuckyPerms.jar https://download.luckperms.net/1556/bukkit/loader/LuckPerms-Bukkit-5.4.141.jar
+
+RUN wget -O /minecraft-init/plugins/EssentialsX.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.21.0-dev+115-6157668.jar
+
+RUN wget -O /minecraft-init/plugins/EssentialsXChat.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.21.0-dev+115-6157668.jar
+
+RUN wget -O /minecraft-init/plugins/VaultUnlocked.jar https://hangarcdn.papermc.io/plugins/TNE/VaultUnlocked/versions/2.0.0/PAPER/VaultUnlocked-2.1.0.jar
+
+RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
+COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
+
+RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Stable%20Builds/5/artifact/target/WildStacker-2024.3.jar
+
+RUN wget -O /minecraft-init/plugins/multiverse-core.jar https://hangarcdn.papermc.io/plugins/Multiverse/Multiverse-Core/versions/4.3.13/PAPER/multiverse-core-4.3.13.jar
+RUN wget -O /minecraft-init/plugins/multiverse-inventories.jar https://mediafilez.forgecdn.net/files/4721/185/multiverse-inventories-4.2.6.jar
+RUN wget -O /minecraft-init/plugins/multiverse-portals.jar https://cdn.modrinth.com/data/8VMk6P0I/versions/R2j8xMnO/multiverse-portals-4.3.0-pre.jar
+
+CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
