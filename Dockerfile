@@ -52,12 +52,16 @@ RUN wget -O /minecraft-init/plugins/Mini-MOTD.jar https://hangarcdn.papermc.io/p
 COPY ./configs/mini-motd.conf /minecraft-init/plugins/MiniMOTD/main.conf
 
 #Player
-RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/plugins/William278/HuskHomes/versions/4.7/PAPER/HuskHomes-Paper-4.7.jar
+#RUN wget -O /minecraft-init/plugins/HuskHomes.jar https://hangarcdn.papermc.io/plugins/William278/HuskHomes/versions/4.7/PAPER/HuskHomes-Paper-4.7.jar
 RUN wget -O /minecraft-init/plugins/BetterSleepPlus.jar https://mediafilez.forgecdn.net/files/5482/828/BetterSleepPlus-1.0.jar
 
 #Permissions
 RUN wget -O /minecraft-init/plugins/LuckyPerms.jar https://download.luckperms.net/1556/bukkit/loader/LuckPerms-Bukkit-5.4.141.jar
 RUN wget -O /minecraft-init/plugins/VaultUnlocked.jar https://hangarcdn.papermc.io/plugins/TNE/VaultUnlocked/versions/2.0.0/PAPER/VaultUnlocked-2.1.0.jar
+
+#Essentials
+RUN wget -O /minecraft-init/plugins/EssentialsX.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.21.0-dev+115-6157668.jar
+RUN wget -O /minecraft-init/plugins/EssentialsXChat.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.21.0-dev+115-6157668.jar
 
 #BLueMap
 RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
@@ -65,6 +69,7 @@ COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 
 #WildStacker
 RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Stable%20Builds/5/artifact/target/WildStacker-2024.3.jar
+COPY ./configs/wildstacker.yml /minecraft-init/plugins/WildStacker/config.yml
 
 #Multiverse
 RUN wget -O /minecraft-init/plugins/multiverse-core.jar https://hangarcdn.papermc.io/plugins/Multiverse/Multiverse-Core/versions/4.3.13/PAPER/multiverse-core-4.3.13.jar
