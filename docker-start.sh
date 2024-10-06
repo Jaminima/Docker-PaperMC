@@ -15,4 +15,4 @@ cp ./server-icon.png /minecraft
 
 # Start the server
 cd /minecraft
-java -Xms4G -Xmx8G -jar paper.jar --nogui
+java -Xms4G -Xmx7G -jar paper.jar --nogui
