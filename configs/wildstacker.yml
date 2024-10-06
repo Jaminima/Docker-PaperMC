@@ -100,7 +100,7 @@ items:
   # {0} represents stack amount
   # {1} represents display name
   # {2} represents display name in upper case
-  custom-name: '&6x{0} &f&o{1}'
+  custom-name: ''
 
   # Blacklisted items are items that won't get stacked.
   # Material list: https://bg-software.com/materials/
@@ -209,7 +209,7 @@ entities:
   # You can use 'all' as a global limit (all: 20 will set all entities to be limited to 20 per stack)
   # If you don't want any limits, you can set a random type.
   limits:
-    all: 16
+    all: 1
 
   # Set a minimum required entities to stack for specific entities.
   # Make sure you follow the "ENTITY-TYPE" format.
@@ -371,13 +371,13 @@ entities:
   keep-lowest-health: []
 
   # When enabled, parents of the entity will get stacked together after breeding.
-  stack-after-breed: true
+  stack-after-breed: false
 
   # When smart-breed is enabled, players will be consumed with two items in order to breed a stack.
   # No breeding animation will be played, and a new baby stack will be spawned with the correct amount.
   # This can prevent massive splits of the stack for breeding, and can help with performance.
   smart-breeding:
-    enabled: true
+    enabled: false
     # When enabled, items for breeding will be consumed from the entire inventory instead of only hand.
     consume-entire-inventory: false
 
@@ -474,7 +474,7 @@ entities:
 # Here you can configurable all features related to stacked spawners.
 spawners:
   # Should spawners get stacked on the server?
-  enabled: true
+  enabled: false
 
   # How many blocks from the spawner should be checked for other spawners to stack into?
   # EntityType list: https://bg-software.com/entities/
@@ -787,7 +787,7 @@ spawners:
 # Here you can configurable all features related to stacked barrels (aka stacked blocks).
 barrels:
   # Should blocks get stacked into barrels on the server?
-  enabled: true
+  enabled: false
 
   # How many blocks from the barrel should be checked for other blocks to stack into?
   # Material list: https://bg-software.com/materials/
