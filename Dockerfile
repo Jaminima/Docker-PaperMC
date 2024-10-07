@@ -71,6 +71,9 @@ COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Stable%20Builds/5/artifact/target/WildStacker-2024.3.jar
 COPY ./configs/wildstacker.yml /minecraft-init/plugins/WildStacker/config.yml
 
+#FineHarvest
+RUN wget -O /minecraft-init/plugins/FineHarvest.jar https://github.com/sammyt291/FineHarvest/releases/download/v1.4.7/FineHarvest-1.4.7.jar
+
 #Multiverse
 RUN wget -O /minecraft-init/plugins/multiverse-core.jar https://hangarcdn.papermc.io/plugins/Multiverse/Multiverse-Core/versions/4.3.13/PAPER/multiverse-core-4.3.13.jar
 RUN wget -O /minecraft-init/plugins/multiverse-inventories.jar https://mediafilez.forgecdn.net/files/4721/185/multiverse-inventories-4.2.6.jar
