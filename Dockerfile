@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
 #Java Port
 EXPOSE 25565
 
-#Bedrock Port
-EXPOSE 19132 
+#Bedrock Port (UDP)
+EXPOSE 19132/udp
 
 #Plan Analytics Port
 EXPOSE 8804
