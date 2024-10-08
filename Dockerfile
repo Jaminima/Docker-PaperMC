@@ -6,8 +6,11 @@ RUN apt-get update && apt-get install -y \
     wget \
     dos2unix
 
-#MC Server Port
+#Java Port
 EXPOSE 25565
+
+#Bedrock Port
+EXPOSE 19132 
 
 #Plan Analytics Port
 EXPOSE 8804
@@ -78,5 +81,9 @@ RUN wget -O /minecraft-init/plugins/FineHarvest.jar https://github.com/sammyt291
 RUN wget -O /minecraft-init/plugins/multiverse-core.jar https://hangarcdn.papermc.io/plugins/Multiverse/Multiverse-Core/versions/4.3.13/PAPER/multiverse-core-4.3.13.jar
 RUN wget -O /minecraft-init/plugins/multiverse-inventories.jar https://mediafilez.forgecdn.net/files/4721/185/multiverse-inventories-4.2.6.jar
 RUN wget -O /minecraft-init/plugins/multiverse-portals.jar https://cdn.modrinth.com/data/8VMk6P0I/versions/R2j8xMnO/multiverse-portals-4.3.0-pre.jar
+
+#Geyser
+RUN wget -O /minecraft-init/plugins/Geyser.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+RUN wget -O /minecraft-init/plugins/Floodgate.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 CMD ["/bin/bash", "/minecraft-init/docker-start.sh"]
