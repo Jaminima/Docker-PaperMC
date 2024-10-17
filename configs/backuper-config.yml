@@ -1,0 +1,133 @@
+# DO NOT CHANGE
+configVersion: 8.0
+lastBackup: 0
+lastChange: 0
+
+backup:
+  # (true/false) Automatic backup once in a specified period
+  autoBackup: true
+  # Set a format for backup file names (see java.time docs). It must contain information about both time and date
+  backupFileNameFormat: "dd-MM-yyyy HH-mm-ss"
+  # (Path list) (An example of how to set a list is below) Full directory paths to folders/files that you want to be backed up. Worlds will be backed up automatically, so you do not need to specify world folders there (For example you can specify "plugins", "config")
+  # addDirectoryToBackup:
+  # - path1
+  # - path2
+  # - ...
+  addDirectoryToBackup: []
+  # (Path list) (An example of how to set a list is below) Full directory paths to folders/files that you want to be excluded from backup. If you want to backup everything from the folder1 except some folder1/file1 you can specify folder1 in addDirectoryToBackup and folder1/file1 in excludeDirectoryFromBackup. (The backupsFolder directory will be excluded automatically to prevent the loop)
+  # excludeDirectoryFromBackup:
+  # - path1
+  # - path2
+  # - ...
+  excludeDirectoryFromBackup: []
+
+  # (MINUTES > 0 or -1) Backup period. To change this value you need to set backupTime to -1 and autoBackup to true
+  backupPeriod: 1440
+  # (0 - 23). Automatic backups will be made at this time every day. (backupPeriod will be automatically set to 24 hours). -1 to disable backup time fixation
+  backupTime: -1
+
+  # (true/false) Sometimes errors may occur while creating a backup. When this option is enabled, such backups will be deleted
+  deleteBrokenBackups: true
+  # (true/false) The backup will only occur if the world has been changed since the last backup. If the world has not been changed, this backup cycle will be skipped
+  skipDuplicateBackup: true
+  # (STOP, RESTART, NOTHING) What to do after an automatic backup
+  afterBackup: NOTHING
+
+  # (true/false) (True recommended) The backuper will mark all world folders as Read Only to prevent folder changing that may cause the backup crash. True value may cause access denied errors during the backup (you should just ignore that)
+  setWorldsReadOnly: false
+
+local:
+  # (true/false) Enable local storage to use it via the Backuper
+  enabled: true
+  # (true/false) With automatic backup, backups will be saved to specified local storage. Works only if 'enabled: true'
+  autoBackup: true
+
+  # (Path) Full directory where backups will be stored
+  backupsFolder: plugins/Backuper/Backups
+
+  # (>= 0) Max backups in backups folder, 0 to make it unlimited
+  maxBackupsNumber: 4
+  # (MB >= 0) Max backups folder weight, 0 to make it unlimited
+  maxBackupsWeight: 0
+
+  # (true/false) Should backups be packaged in a zip archive
+  zipArchive: true
+  # (0 - 9) archive compression level. A higher value may reduce file size, but may also increase the time required to archive and decompress
+  zipCompressionLevel: 5
+
+ftp:
+  # (true/false) Enable FTP storage to use it via the Backuper
+  enabled: false
+  # (true/false) With automatic backup, backups will be saved to specified FTP server. Works only if 'enabled: true'
+  autoBackup: true
+
+  # (Path) FTP server directory where backups will be stored
+  backupsFolder: ''
+  # (Symbol) Path separator symbol used on FTP SERVER. For example '/' on UNIX systems and '\' on windows
+  pathSeparatorSymbol: /
+
+  # (>= 0) Max backups in backups folder, 0 to make it unlimited
+  maxBackupsNumber: 0
+  # (MB >= 0) Max backups folder weight, 0 to make it unlimited
+  maxBackupsWeight: 0
+
+  # (true/false) Should backups be packaged in a zip archive
+  zipArchive: true
+  # (0 - 9) archive compression level. A higher value may reduce file size, but may also increase the time required to archive and decompress
+  zipCompressionLevel: 5
+
+  auth:
+    # (Address) FTP server address
+    address: ''
+    # (Port) FTP server port
+    port: 21
+    # (Username) FTP server username to use for authentication
+    username: ''
+    # (Password) FTP server password to use for authentication
+    password: ''
+
+sftp:
+  # (true/false) Enable SFTP storage to use it via the Backuper
+  enabled: false
+  # (true/false) With automatic backup, backups will be saved to specified SFTP server. Works only if 'enabled: true'
+  autoBackup: true
+
+  # (Path) SFTP server directory where backups will be stored
+  backupsFolder: ''
+  # (Symbol) Path separator symbol used on SFTP SERVER. For example '/' on UNIX systems and '\' on windows
+  pathSeparatorSymbol: /
+
+  # (>= 0) Max backups in backups folder, 0 to make it unlimited
+  maxBackupsNumber: 0
+  # (MB >= 0) Max backups folder weight, 0 to make it unlimited
+  maxBackupsWeight: 0
+
+  auth:
+    # (Address) SFTP server address
+    address: ''
+    # (Port) FTP server port
+    port: 22
+    # (password/key) SFTP server authentication type
+    authType: password
+    # (Username) FTP server username to use for authentication
+    username: ''
+    # (Password) FTP server password to use for authentication
+    password: ''
+    # (Absolute Path) Local path to key file if 'authType: key'
+    keyFilePath: ''
+    # (true/false) Do you want to specify local knownHostsFile?
+    useKnownHostsFile: false
+    # (Path) Path to local knownHostsFile if 'useKnownHostsFile: true'
+    knownHostsFilePath: ''
+
+server:
+  # (SECONDS < backupPeriod * 60 or -1) A notification about the server restart will be sent to all players on the server {alertTimeBeforeRestart} seconds before the restart. -1 to disable notifications
+  alertTimeBeforeRestart: 60
+  # (true/false) Notifications will be sent only if the server will be restarted or stopped after the backup
+  alertOnlyServerRestart: true
+
+  # (true/false) Check for new versions of the Backuper to stay up to date
+  checkUpdates: true
+
+  # (true/false) Better logging (Some statistic and other information for debugging, you probably don't need it)
+  betterLogging: false

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>WhiteGoat</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.css">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+        <style>
+            .btn-primary, .btn-secondary {
+                transition: transform 0.2s;
+            }
+            .btn-primary:hover, .btn-secondary:hover {
+                transform: scale(1.1);
+            }
+            .card-row{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            .card {
+                background-color: rgba(0, 0, 0, 0.7);
+                border: none;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 1rem 0;
+                flex: 1;
+            }
+            .card h3, .card p {
+                margin: 0.5rem 0;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div class="text-center my-5">
+            <img src="assets/logo.png" alt="Image" class="img-fluid mb-4" style="height: 20rem; image-rendering: pixelated;"/>
+            <h1 class="display-4">WhiteGoat</h1>
+            <h2 class="lead">Java & Bedrock MC Server</h2>
+            <div class="mt-4">
+                <a href="https://map.whitegoat.co.uk/" class="btn btn-primary mx-2">Map</a>
+                <a href="https://stats.whitegoat.co.uk/" class="btn btn-secondary mx-2">Stats</a>
+            </div>
+        </div>
+        <div class="card-row text-center my-5">
+            <div class="card">
+                <h3>Java Server</h3>
+                <p>whitegoat.co.uk:25565</p>
+            </div>
+            <div class="card">
+                <h3>Bedrock Server</h3>
+                <p>whitegoat.co.uk:19132</p>
+            </div>
+        </div>
+    </body>
+</html>

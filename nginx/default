@@ -1,0 +1,51 @@
+server {
+	listen 443 ssl default_server;
+	listen [::]:443 ssl default_server;
+	
+	ssl_certificate /etc/nginx/keys/pub.cer;
+	ssl_certificate_key /etc/nginx/keys/pri.key;
+
+	root /www-root/;
+
+	index index.html index.htm;
+
+	server_name whitegoat.co.uk www.whitegoat.co.uk;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+
+server {
+    listen 80 default_server;
+    server_name whitegoat.co.uk www.whitegoat.co.uk;
+    return 301 https://whitegoat.co.uk/;
+}
+
+# Map
+server {
+    listen 443 ssl;
+    
+    ssl_certificate /etc/nginx/keys/pub.cer;
+    ssl_certificate_key /etc/nginx/keys/pri.key;
+
+    server_name map.whitegoat.co.uk map.localhost;
+
+    location / {
+        proxy_pass http://localhost:8100/;
+    }
+}
+
+# Stats
+server {
+    listen 443 ssl;
+    
+    ssl_certificate /etc/nginx/keys/pub.cer;
+    ssl_certificate_key /etc/nginx/keys/pri.key;
+
+    server_name stats.whitegoat.co.uk stats.localhost;
+
+    location / {
+        proxy_pass http://localhost:8804/;
+    }
+}

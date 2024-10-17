@@ -1,0 +1,12 @@
+services:
+    paper:
+      image: jaminima/paper
+      stdin_open: true
+      tty: true
+      ports:
+        - "80:80"
+        - "443:443"
+        - "25565:25565"
+        - "19132:19132/udp"
+      volumes:
+        - ./server:/minecraft
