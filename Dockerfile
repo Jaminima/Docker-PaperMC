@@ -4,12 +4,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
     wget \
-    dos2unix \ 
-    nginx
-
-#Web Port
-EXPOSE 80
-EXPOSE 443
+    dos2unix 
 
 #Java Port
 EXPOSE 25565
@@ -94,23 +89,6 @@ RUN wget -O /minecraft-init/plugins/Floodgate.jar https://download.geysermc.org/
 COPY docker-start.sh ./docker-start.sh
 RUN dos2unix ./docker-start.sh
 RUN chmod +x ./docker-start.sh
-
-#------Configure Nginx------
-
-COPY ./nginx/default /etc/nginx/sites-available/default
-
-RUN dos2unix /etc/nginx/sites-available/default
-
-COPY ./nginx/ssl/pub.cer /etc/nginx/keys/pub.cer
-COPY ./nginx/ssl/inter.cer /etc/nginx/keys/inter.cer
-COPY ./nginx/ssl/pri.key /etc/nginx/keys/pri.key
-
-#------Configure Website------
-    
-RUN mkdir /www-root
-RUN chmod 777 /www-root
-
-COPY ./site /www-root
 
 #------Start The Server------
 
