@@ -85,6 +85,9 @@ RUN wget -O /minecraft-init/plugins/multiverse-portals.jar https://cdn.modrinth.
 RUN wget -O /minecraft-init/plugins/Geyser.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
 RUN wget -O /minecraft-init/plugins/Floodgate.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
+#ViaVersion
+RUN wget -O /minecraft-init/plugins/ViaVersion.jar https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.0.5/PAPER/ViaVersion-5.0.5.jar
+
 #Copy The Start Script
 COPY docker-start.sh ./docker-start.sh
 RUN dos2unix ./docker-start.sh
