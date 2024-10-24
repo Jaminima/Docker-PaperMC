@@ -59,8 +59,8 @@ RUN wget -O /minecraft-init/plugins/LuckyPerms.jar https://download.luckperms.ne
 RUN wget -O /minecraft-init/plugins/VaultUnlocked.jar https://hangarcdn.papermc.io/plugins/TNE/VaultUnlocked/versions/2.0.0/PAPER/VaultUnlocked-2.1.0.jar
 
 #Essentials
-RUN wget -O /minecraft-init/plugins/EssentialsX.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.21.0-dev+117-c80bef9.jar
-RUN wget -O /minecraft-init/plugins/EssentialsXChat.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.21.0-dev+117-c80bef9.jar
+RUN wget -O /minecraft-init/plugins/EssentialsX.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.21.0-dev+120-cd06e73.jar
+RUN wget -O /minecraft-init/plugins/EssentialsXChat.jar https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXChat-2.21.0-dev+120-cd06e73.jar
 
 #BLueMap
 RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.4/bluemap-5.4-paper.jar
