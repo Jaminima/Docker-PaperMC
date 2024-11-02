@@ -3,6 +3,8 @@
 cd /minecraft-init
 
 # Copy server folders to the server directory
+echo "Copying server files to the server directory..."
+
 cp -r -f ./cache /minecraft
 cp -r -f ./libraries /minecraft
 cp -r -f ./plugins /minecraft

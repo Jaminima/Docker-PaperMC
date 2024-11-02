@@ -27,7 +27,7 @@ RUN chmod 777 /minecraft-init
 WORKDIR /minecraft-init
 
 #Download the paper jar
-RUN wget -O /minecraft-init/paper.jar  https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/122/downloads/paper-1.21.1-122.jar
+RUN wget -O /minecraft-init/paper.jar  https://api.papermc.io/v2/projects/paper/versions/1.21.3/builds/10/downloads/paper-1.21.3-10.jar
 
 #Run the server for the first time to generate the eula
 RUN java -jar paper.jar
@@ -39,7 +39,7 @@ RUN echo "eula=true" > /minecraft-init/eula.txt
 COPY ./configs/server-icon.png /minecraft-init/server-icon.png
 
 #Administration
-RUN wget -O /minecraft-init/plugins/Backuper.jar https://hangarcdn.papermc.io/plugins/Collagen/Backuper/versions/3.1.0/PAPER/Backuper-3.1.0.jar
+RUN wget -O /minecraft-init/plugins/Backuper.jar https://hangarcdn.papermc.io/plugins/Collagen/Backuper/versions/3.1.1/PAPER/Backuper-3.1.1.jar
 COPY ./configs/backuper-config.yml /minecraft-init/plugins/Backuper/config.yml
 
 RUN wget -O /minecraft-init/plugins/Plan.jar https://github.com/plan-player-analytics/Plan/releases/download/5.6.2883/Plan-5.6-build-2883.jar
@@ -86,7 +86,7 @@ RUN wget -O /minecraft-init/plugins/Geyser.jar https://download.geysermc.org/v2/
 RUN wget -O /minecraft-init/plugins/Floodgate.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 #ViaVersion
-RUN wget -O /minecraft-init/plugins/ViaVersion.jar https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.0.5/PAPER/ViaVersion-5.0.5.jar
+RUN wget -O /minecraft-init/plugins/ViaVersion.jar https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.1.1/PAPER/ViaVersion-5.1.1.jar
 
 #Copy The Start Script
 COPY docker-start.sh ./docker-start.sh
