@@ -67,8 +67,8 @@ RUN wget -O /minecraft-init/plugins/BlueMap.jar https://github.com/BlueMap-Minec
 COPY ./configs/bluemap-core.conf /minecraft-init/plugins/BlueMap/core.conf
 
 #WildStacker
-RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Dev%20Builds/86/artifact/target/WildStacker-2024.3-b86.jar
-COPY ./configs/wildstacker.yml /minecraft-init/plugins/WildStacker/config.yml
+#RUN wget -O /minecraft-init/plugins/WildStacker.jar https://hub.bg-software.com/job/WildStacker%20-%20Dev%20Builds/86/artifact/target/WildStacker-2024.3-b86.jar
+#COPY ./configs/wildstacker.yml /minecraft-init/plugins/WildStacker/config.yml
 
 #FineHarvest
 RUN wget -O /minecraft-init/plugins/FineHarvest.jar https://github.com/sammyt291/FineHarvest/releases/download/v1.4.7/FineHarvest-1.4.7.jar
